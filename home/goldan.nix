@@ -11,5 +11,9 @@
     ripgrep
   ];
 
+  home.file.".zshrc" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/.zshrc";
+  };
+
   home.stateVersion = "25.05";
 }
