@@ -9,6 +9,7 @@
     gcc
     stow
     ripgrep
+    tree
   ];
 
   home.file.".zshrc" = {
