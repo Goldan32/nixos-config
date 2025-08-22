@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     gcc
     stow
+    ripgrep
   ];
 
   home.stateVersion = "25.05";

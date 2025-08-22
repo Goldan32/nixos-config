@@ -27,5 +27,6 @@
     gawk
     gnupg
     bash
+    fd
   ];
 }
