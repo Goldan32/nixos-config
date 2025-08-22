@@ -16,5 +16,7 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/.zshrc";
   };
 
+  programs.home-manager.enable = true;
+
   home.stateVersion = "25.05";
 }

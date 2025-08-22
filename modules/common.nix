@@ -28,5 +28,6 @@
     gnupg
     bash
     fd
+    home-manager
   ];
 }
