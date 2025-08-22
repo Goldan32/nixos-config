@@ -1,11 +1,8 @@
 {
   description = "NixOS Flake Configuration";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    hyprland.url = "github:hyprwm/Hyprland/v0.50.1";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +29,7 @@
         };
     in {
       nixosConfigurations = {
-        desktop = mkHost "vm" ./hosts/desktop/configuration.nix;
+        vm = mkHost "vm" ./hosts/vm/configuration.nix;
       };
     };
 }
