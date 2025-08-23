@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "goldan";
@@ -12,11 +12,18 @@
     tree
   ];
 
+  programs.home-manager.enable = true;
+
   home.file.".zshrc" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/.zshrc";
   };
 
-  programs.home-manager.enable = true;
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    CURDIR="$(pwd)"
+    cd "${config.home.homeDirectory}/nixos-config/dotfiles" && \
+    ${pkgs.stow}/bin/stow --no-folding -t "$HOME" .
+    cd "$CURDIR"
+  '';
 
   home.stateVersion = "25.05";
 }
