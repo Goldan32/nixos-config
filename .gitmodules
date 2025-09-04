@@ -1,3 +1,0 @@
-[submodule "dotfiles"]
-	path = dotfiles
-	url = ssh://git@github.com/Goldan32/dotfiles

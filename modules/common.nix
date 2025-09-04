@@ -9,25 +9,14 @@
     extraGroups = [ "wheel" "networkmanager" "dialout" "docker" ];
   };
 
-  programs.zsh.enable = true;
-  programs.neovim.enable = true;
+  programs.zsh.enable = false;
+  programs.neovim.enable = false;
 
   environment.systemPackages = with pkgs; [
     vim
     wget
     curl
-    git
-    zip
-    xz
-    unzip
-    file
-    which
-    gnused
-    gnutar
-    gawk
-    gnupg
     bash
-    fd
     home-manager
   ];
 }

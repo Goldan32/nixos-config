@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-config.url = "github:Goldan32/nix-home";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, home-config, ... }:
     let
       system = "x86_64-linux";
 
@@ -19,11 +20,8 @@
           modules = [
             path
             ./modules/common.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.goldan = import ./home/goldan.nix;
+            home-config.inputs.home-manager.nixosModules.home-manager {
+              home-manager.users.goldan = home-config.outputs.homeConfigurations.goldan;
             }
           ];
         };
