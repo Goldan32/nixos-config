@@ -2,12 +2,12 @@
   description = "NixOS Flake Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-config.url = "github:Goldan32/nix-home";
+    home-config.url = "github:Goldan32/nix-home/?ref=main";
   };
 
   outputs = { self, nixpkgs, home-manager, home-config, ... }:
@@ -20,9 +20,15 @@
           modules = [
             path
             ./modules/common.nix
-            home-config.inputs.home-manager.nixosModules.home-manager {
-              home-manager.users.goldan = home-config.outputs.homeConfigurations.goldan;
-            }
+            home-manager.nixosModules.home-manager
+
+            ({ ... }: {
+              home-manager.users.goldan = {
+                imports = [ home-config.hmModules.goldan ];
+                _module.args.jotter = home-config.inputs.jotter;
+                _module.args.system = system;
+              };
+            })
           ];
         };
     in {
