@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
+    ../../modules/hyprland.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
