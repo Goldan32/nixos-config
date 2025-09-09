@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-config.url = "github:Goldan32/nix-home/?rev=b157b5f855d3b50f85ed909518a2ff53e71f20f0";
+    home-config.url = "github:Goldan32/nix-home/?rev=edbe232f923dabaa819f4d3ada70ede7d20ea62a";
   };
 
   outputs = { self, nixpkgs, home-manager, home-config, ... }:
@@ -27,6 +27,7 @@
                 imports = [ home-config.hmModules.goldan ];
                 _module.args.jotter = home-config.inputs.jotter;
                 _module.args.system = system;
+                _module.args.dotfiles = home-config.inputs.dotfiles;
               };
             })
           ];
