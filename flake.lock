@@ -45,17 +45,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1757442232,
-        "narHash": "sha256-65zSsj5II1x4kCbZUW/ibbq9OuSRWy+0qM7BwtX8bms=",
+        "lastModified": 1757443031,
+        "narHash": "sha256-qd4NrhG9MzaTB7eijE4BvFTuySFanSKOADBQTCEbWPM=",
         "owner": "Goldan32",
         "repo": "nix-home",
-        "rev": "edbe232f923dabaa819f4d3ada70ede7d20ea62a",
+        "rev": "b18a7e5fc73b9ff66421f6a5c6f95dd6556525e9",
         "type": "github"
       },
       "original": {
         "owner": "Goldan32",
+        "ref": "nixos",
         "repo": "nix-home",
-        "rev": "edbe232f923dabaa819f4d3ada70ede7d20ea62a",
         "type": "github"
       }
     },

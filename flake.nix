@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-config.url = "github:Goldan32/nix-home/?rev=edbe232f923dabaa819f4d3ada70ede7d20ea62a";
+    home-config.url = "github:Goldan32/nix-home/nixos";
   };
 
   outputs = { self, nixpkgs, home-manager, home-config, ... }:
