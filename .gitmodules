@@ -1,0 +1,3 @@
+[submodule "home"]
+	path = home
+	url = ssh://git@github.com/Goldan32/nix-home
