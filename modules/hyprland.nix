@@ -15,7 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    rofi-wayland
+    rofi
     brightnessctl
     pavucontrol
   ];
