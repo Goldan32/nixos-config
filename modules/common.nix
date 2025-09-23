@@ -18,5 +18,6 @@
     curl
     bash
     home-manager
+    python3
   ];
 }
