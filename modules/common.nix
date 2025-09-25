@@ -3,6 +3,7 @@
   time.timeZone = "Europe/Budapest";
   i18n.defaultLocale = "en_US.UTF-8";
   services.openssh.enable = true;
+  virtualisation.docker.enable = true;
 
   users.users.goldan = {
     isNormalUser = true;
@@ -19,5 +20,7 @@
     bash
     home-manager
     python3
+    docker-compose
+    wireguard-tools
   ];
 }
