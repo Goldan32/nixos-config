@@ -6,6 +6,7 @@
     ../../modules/common.nix
     ../../modules/hyprland.nix
     ../../modules/cleanup.nix
+    ../../modules/bluetooth.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];

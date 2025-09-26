@@ -15,8 +15,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    rofi
     brightnessctl
     pavucontrol
+    hyprlock
   ];
 }
