@@ -36,6 +36,7 @@
       nixosConfigurations = {
         vm = mkHost "vm" ./hosts/vm/configuration.nix;
         zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix;
+        pc = mkHost "pc" ./hosts/pc/configuration.nix;
       };
     };
 }
