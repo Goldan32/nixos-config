@@ -3,10 +3,10 @@
 
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
-  hardware.opengl = {
+  nixpkgs.config.allowUnfree = true;
+
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   # Enable NVIDIA modesetting
@@ -27,11 +27,19 @@
     __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
 
+  services.xserver.deviceSection = ''
+    Option "Coolbits" "4"
+  '';
+
   environment.systemPackages = with pkgs; [
     vulkan-tools
     vulkan-validation-layers
     libva
     libva-utils
+    coolercontrol.coolercontrold
+    coolercontrol.coolercontrol-liqctld
+    lm_sensors
+    linuxKernel.packages.linux_xanmod_stable.asus-ec-sensors
   ];
 }
 
