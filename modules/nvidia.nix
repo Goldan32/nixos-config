@@ -36,8 +36,6 @@
     vulkan-validation-layers
     libva
     libva-utils
-    coolercontrol.coolercontrold
-    coolercontrol.coolercontrol-liqctld
     lm_sensors
     linuxKernel.packages.linux_xanmod_stable.asus-ec-sensors
   ];

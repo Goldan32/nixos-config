@@ -4,13 +4,26 @@
     ../../modules/common.nix
     ../../modules/hyprland.nix
     ../../modules/nvidia.nix
+    ../../modules/nfancurve.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 60;
+
+  # Add Windows manually with a low sort-key so it's always first
+  boot.loader.systemd-boot.extraEntries = {
+    "windows.conf" = ''
+      title   Windows Boot Manager
+      efi     /EFI/Microsoft/Boot/bootmgfw.efi
+      sort-key 00-windows
+    '';
+  };
+
+  # Keep only the last N generations in the menu
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
