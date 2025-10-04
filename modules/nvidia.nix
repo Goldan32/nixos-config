@@ -38,6 +38,7 @@
     libva-utils
     lm_sensors
     linuxKernel.packages.linux_xanmod_stable.asus-ec-sensors
+    xhost
   ];
 }
 

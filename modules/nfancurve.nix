@@ -68,12 +68,23 @@ let
     fan2gpu="0 0 1 1"
   '';
 in {
+  systemd.services.xhostToRoot = {
+    description = "Allow root to start nvidia-setttings";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "goldan";
+      Environment = [ "DISPLAY=:0" ];
+      ExecStart = "${pkgs.xhost}/bin/xhost si:localuser:root";
+    };
+  };
+
   systemd.services.nfancurve = {
     description = "nfancurve service";
     wantedBy = [ "multi-user.target" ];
-
     serviceConfig = {
       Type = "simple";
+      After = "xhostToRoot.service";
       Environment = [
         "PATH=/run/current-system/sw/bin:/run/wrappers/bin"
         "DISPLAY=:0"
