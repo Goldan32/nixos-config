@@ -21,6 +21,7 @@
     home-manager
     python3
     docker-compose
+    docker-buildx
     wireguard-tools
   ];
 }

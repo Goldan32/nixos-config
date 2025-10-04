@@ -70,18 +70,21 @@ let
 in {
   systemd.services.xhostToRoot = {
     description = "Allow root to start nvidia-setttings";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "graphical.target" ];
     serviceConfig = {
       Type = "simple";
       User = "goldan";
+      After = "graphical.target";
       Environment = [ "DISPLAY=:0" ];
       ExecStart = "${pkgs.xhost}/bin/xhost si:localuser:root";
+      Restart = "on-failure";
+      RestartSec = 10;
     };
   };
 
   systemd.services.nfancurve = {
     description = "nfancurve service";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "graphical.target" ];
     serviceConfig = {
       Type = "simple";
       After = "xhostToRoot.service";
