@@ -23,7 +23,7 @@
   };
 
   # Keep only the last N generations in the menu
-  boot.loader.systemd-boot.configurationLimit = 10;
+  # boot.loader.systemd-boot.configurationLimit = 10;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
