@@ -23,5 +23,6 @@
     docker-compose
     docker-buildx
     wireguard-tools
+    pulseaudio
   ];
 }
