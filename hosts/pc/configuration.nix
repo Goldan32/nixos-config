@@ -5,6 +5,7 @@
     ../../modules/hyprland.nix
     ../../modules/nvidia.nix
     ../../modules/nfancurve.nix
+    ../../modules/virtualization.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
