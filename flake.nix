@@ -14,7 +14,7 @@
     let
       system = "x86_64-linux";
 
-      mkHost = name: path:
+      mkHost = name: path: hmModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -24,7 +24,7 @@
 
             ({ ... }: {
               home-manager.users.goldan = {
-                imports = [ home-config.hmModules.goldan ];
+                imports = [ hmModule ];
                 _module.args.jotter = home-config.inputs.jotter;
                 _module.args.system = system;
                 _module.args.dotfiles = home-config.inputs.dotfiles;
@@ -34,9 +34,10 @@
         };
     in {
       nixosConfigurations = {
-        vm = mkHost "vm" ./hosts/vm/configuration.nix;
-        zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix;
-        pc = mkHost "pc" ./hosts/pc/configuration.nix;
+        vm = mkHost "vm" ./hosts/vm/configuration.nix home-config.hmModules.goldan;
+        zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix home-config.hmModules.goldan;
+        pc = mkHost "pc" ./hosts/pc/configuration.nix home-config.hmModules.goldan;
+        server = mkHost "server" ./hosts/server/configuration.nix home-config.hmModules.headless;
       };
     };
 }
