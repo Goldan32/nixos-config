@@ -6,6 +6,7 @@
     ../../modules/nvidia.nix
     ../../modules/nfancurve.nix
     ../../modules/virtualization.nix
+    ../../modules/cleanup.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];

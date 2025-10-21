@@ -20,6 +20,8 @@
     bash
     home-manager
     python3
+    pipx
+    uv
     docker-compose
     docker-buildx
     wireguard-tools
