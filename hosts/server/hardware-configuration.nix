@@ -13,16 +13,28 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/ROOT";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/ROOT";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/BOOT";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-label/BARRACUDA";
+    fsType = "ext4";
+    options = [ "defaults" "user" "users" ];
+  };
+
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-label/BACKUP";
+    fsType = "ext4";
+    options = [ "defaults" "user" "users" ];
+  };
 
   swapDevices = [ ];
 
