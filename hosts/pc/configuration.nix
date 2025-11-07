@@ -7,6 +7,7 @@
     ../../modules/nfancurve.nix
     ../../modules/virtualization.nix
     ../../modules/cleanup.nix
+    ../../modules/hosts.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];

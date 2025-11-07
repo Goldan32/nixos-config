@@ -7,7 +7,7 @@
 
   users.users.goldan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "disk" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "disk" "power" ];
   };
 
   programs.zsh.enable = false;
