@@ -15,6 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    hyprlandPlugins.hy3
     brightnessctl
     pavucontrol
     hyprlock
