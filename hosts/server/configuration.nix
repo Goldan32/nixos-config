@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
+    ../../modules/powerbutton.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
