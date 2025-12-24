@@ -8,6 +8,7 @@
     ../../modules/cleanup.nix
     ../../modules/bluetooth.nix
     ../../modules/hosts.nix
+    ../../modules/powerprofiles.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
