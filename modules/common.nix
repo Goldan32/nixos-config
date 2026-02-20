@@ -13,6 +13,11 @@
   programs.zsh.enable = false;
   programs.neovim.enable = false;
 
+
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.udev.packages = [ pkgs.libmtp ];
+
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -26,5 +31,7 @@
     docker-buildx
     wireguard-tools
     pulseaudio
+    libmtp
+    jmtpfs
   ];
 }
