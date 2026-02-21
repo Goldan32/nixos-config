@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 let
-  # Pull your repo containing temp.sh
   nfancurvePkg = pkgs.stdenv.mkDerivation {
     pname = "nfancurve";
     version = "0.1.0";

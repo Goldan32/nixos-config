@@ -8,6 +8,7 @@
     ../../modules/virtualization.nix
     ../../modules/cleanup.nix
     ../../modules/hosts.nix
+    ../../modules/powerprofiles.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
