@@ -22,13 +22,13 @@ let
     #  first speed in fcurve is (default of 25%)
     # min_t2 is only used with the second fan speed and temperature arrays, so
     #  there is no need to change it unless you're using the second curve
-    min_t="38"
+    min_t="36"
     min_t2="25"
     
     # How many seconds the script should wait until checking for a change in temps
-    sleep_time="7"
+    sleep_time="5"
     
-    hyst="5"
+    hyst="3"
     
     # By default it's set up so that when the temp is less than or equal to 35
     #  degrees, the fan speed will be set to 25%. Next, if the temp is between 36
@@ -44,7 +44,7 @@ let
     #  the script to check for a new speed to apply. The default of this value
     #  is zero, which means the script will automatically calculate a value
     #  based on the temperature curves supplied below
-    force_check="2"
+    force_check="0"
     
     # These two arrays are for GPU's that have a secondary fan that you may wish
     #  to control seperately, especially if it is water-cooled.

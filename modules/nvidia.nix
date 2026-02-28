@@ -39,6 +39,7 @@
     lm_sensors
     linuxKernel.packages.linux_xanmod_stable.asus-ec-sensors
     xhost
+    at-spi2-atk
   ];
 }
 
