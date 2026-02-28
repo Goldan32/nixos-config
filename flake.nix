@@ -26,6 +26,7 @@
               home-manager.users.goldan = {
                 imports = [ hmModule ];
                 _module.args.jotter = home-config.inputs.jotter;
+                _module.args.zen-browser = home-config.inputs.zen-browser;
                 _module.args.system = system;
                 _module.args.dotfiles = home-config.inputs.dotfiles;
               };
