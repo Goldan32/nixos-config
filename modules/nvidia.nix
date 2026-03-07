@@ -41,5 +41,14 @@
     xhost
     at-spi2-atk
   ];
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          subject.user == "goldan") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 }
 

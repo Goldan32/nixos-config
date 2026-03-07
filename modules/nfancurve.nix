@@ -38,7 +38,7 @@ let
     # You can make the array as big or as small as you require, as long as they
     #  both end up being the same size
     fcurve="0 30 60 70 85" # fan speeds
-    tcurve="39 45 55 65 75" # temperatures
+    tcurve="39 50 55 65 75" # temperatures
     
     # This value is used to determine the temperature difference needed to get
     #  the script to check for a new speed to apply. The default of this value
