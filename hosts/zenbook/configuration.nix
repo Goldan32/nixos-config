@@ -9,6 +9,7 @@
     ../../modules/bluetooth.nix
     ../../modules/hosts.nix
     ../../modules/powerprofiles.nix
+    ../../modules/steam.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
