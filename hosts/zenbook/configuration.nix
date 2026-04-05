@@ -10,6 +10,7 @@
     ../../modules/hosts.nix
     ../../modules/powerprofiles.nix
     ../../modules/steam.nix
+    ../../modules/tailscale.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
