@@ -1,23 +1,22 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   services.displayManager.ly.enable = true;
 
-  # services.xserver.enable = true;
-  # services.displayManager.gdm.enable = true;
-  # services.desktopManager.gnome.enable = false;
+  imports = [ inputs.hyprland.nixosModules.default ];
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   environment.systemPackages = with pkgs; [
-    hyprlandPlugins.hy3
+    inputs.hy3.packages.${pkgs.system}.default
     brightnessctl
     pavucontrol
     hyprlock

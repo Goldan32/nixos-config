@@ -9,7 +9,7 @@
     ../../modules/bluetooth.nix
     ../../modules/hosts.nix
     ../../modules/powerprofiles.nix
-    ../../modules/steam.nix
+    #../../modules/steam.nix
     ../../modules/tailscale.nix
   ];
 

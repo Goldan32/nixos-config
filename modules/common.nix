@@ -25,7 +25,7 @@
     bash
     home-manager
     python3
-    pipx
+    #pipx
     uv
     docker-compose
     docker-buildx
