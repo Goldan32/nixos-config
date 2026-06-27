@@ -39,6 +39,7 @@
                 _module.args.zen-browser = home-config.inputs.zen-browser;
                 _module.args.system = system;
                 _module.args.dotfiles = home-config.inputs.dotfiles;
+                _module.args.neovim-nightly-overlay = home-config.inputs.neovim-nightly-overlay;
               };
             })
           ];
