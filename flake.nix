@@ -1,6 +1,15 @@
 {
   description = "NixOS Flake Configuration";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://hyprland.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwK1g7Sq2gzGpDZgVs3AF8CFpDGF0N9Q="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
