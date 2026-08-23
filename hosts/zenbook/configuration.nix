@@ -11,6 +11,7 @@
     ../../modules/powerprofiles.nix
     #../../modules/steam.nix
     ../../modules/tailscale.nix
+    ../../modules/sway.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
