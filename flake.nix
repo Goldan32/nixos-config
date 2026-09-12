@@ -58,7 +58,7 @@
         vm = mkHost "vm" ./hosts/vm/configuration.nix home-config.hmModules.goldan;
         zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix home-config.hmModules.goldan;
         pc = mkHost "pc" ./hosts/pc/configuration.nix home-config.hmModules.goldan;
-        server = mkHost "server" ./hosts/server/configuration.nix home-config.hmModules.headless;
+        server = mkHost "server" ./hosts/server/configuration.nix home-config.hmModules.tv;
       };
     };
 }
