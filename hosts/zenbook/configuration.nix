@@ -10,8 +10,6 @@
     ../../modules/hosts.nix
     ../../modules/powerprofiles.nix
     ../../modules/tailscale.nix
-    ../../modules/sway.nix
-    ../../modules/kodi.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
