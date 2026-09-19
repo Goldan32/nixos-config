@@ -4,7 +4,6 @@
     ../../modules/common.nix
     ../../modules/powerbutton.nix
     ../../modules/sway.nix
-    ../../modules/kodi.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
