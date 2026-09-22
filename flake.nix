@@ -11,12 +11,14 @@
   };
 
   inputs = {
+    self.submodules = true;
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-config.url = "path:./home";
+    home-config.url = ./home;
 
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.54.2";

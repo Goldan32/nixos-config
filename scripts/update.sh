@@ -3,13 +3,11 @@
 set -e
 PROOT="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../")"
 HOME_CONFIG="$PROOT/home"
-DOTFILES="$PROOT/home/dotfiles"
 
 cd "$HOME_CONFIG" && \
-    nix flake update --override-input dotfiles path:"$DOTFILES"
+    nix flake update
 
 cd "$PROOT" && \
-    nix flake update --override-input home-config path:"$HOME_CONFIG"
+    nix flake update
 
 echo "Update done, do a rebuild to take effect"
-
