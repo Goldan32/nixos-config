@@ -1,6 +1,4 @@
 {
-  description = "NixOS Flake Configuration";
-
   nixConfig = {
     extra-substituters = [
       "https://hyprland.cachix.org"
@@ -20,7 +18,6 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.54.2";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hy3 = {
       url = "github:outfoxxed/hy3/hl0.54.2";
@@ -28,24 +25,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, home-config, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      home-config,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
 
-      mkHost = name: path: hmModule:
+      mkHost =
+        name: path: hmModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             path
-            ./modules/common.nix
             home-manager.nixosModules.home-manager
 
             ({ ... }: {
               home-manager.users.goldan = {
                 imports = [ hmModule ];
                 _module.args.jotter = home-config.inputs.jotter;
-                _module.args.zen-browser = home-config.inputs.zen-browser;
                 _module.args.system = system;
                 _module.args.dotfiles = home-config.inputs.dotfiles;
                 _module.args.neovim-nightly-overlay = home-config.inputs.neovim-nightly-overlay;
@@ -53,12 +56,13 @@
             })
           ];
         };
-    in {
+    in
+    {
       nixosConfigurations = {
-        vm = mkHost "vm" ./hosts/vm/configuration.nix home-config.hmModules.goldan;
-        zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix home-config.hmModules.goldan;
-        pc = mkHost "pc" ./hosts/pc/configuration.nix home-config.hmModules.goldan;
-        server = mkHost "server" ./hosts/server/configuration.nix home-config.hmModules.tv;
+        vm = mkHost "vm" ./hosts/vm/configuration.nix home-config.hmModules.vm;
+        zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix home-config.hmModules.zenbook;
+        pc = mkHost "pc" ./hosts/pc/configuration.nix home-config.hmModules.pc;
+        server = mkHost "server" ./hosts/server/configuration.nix home-config.hmModules.server;
       };
     };
 }

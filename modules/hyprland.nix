@@ -1,5 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
+  nix.settings = {
+    substituters = [
+      "https://hyprland.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwK1g7Sq2gzGpDZgVs3AF8CFpDGF0N9Q="
+    ];
+  };
+
   services.displayManager.ly.enable = true;
 
   imports = [ inputs.hyprland.nixosModules.default ];
@@ -17,8 +26,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.hy3.packages.${pkgs.system}.default
-    brightnessctl
-    pavucontrol
     hyprlock
+    hyprpaper
   ];
 }

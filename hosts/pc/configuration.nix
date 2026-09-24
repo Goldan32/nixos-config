@@ -1,17 +1,20 @@
-{ inputs, config, lib, pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
-    ../../modules/common.nix
-    ../../modules/hyprland.nix
-    ../../modules/nvidia.nix
-    ../../modules/nfancurve.nix
-    ../../modules/virtualization.nix
+    ../../modules/core.nix
+    ../../modules/bluetooth.nix
     ../../modules/cleanup.nix
-    ../../modules/hosts.nix
-    ../../modules/powerprofiles.nix
+    ../../modules/docker.nix
+    ../../modules/essential.nix
+    ../../modules/hyprland.nix
+    ../../modules/local-dns.nix
+    ../../modules/mtp.nix
+    ../../modules/nfancurve.nix
+    ../../modules/nvidia.nix
+    ../../modules/virtualization.nix
+    ../../modules/wireguard.nix
   ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -26,29 +29,9 @@
     '';
   };
 
-  # Keep only the last N generations in the menu
-  # boot.loader.systemd-boot.configurationLimit = 10;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "pc";
-  networking.networkmanager.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  networking.firewall.enable = false;
 
   system.stateVersion = "25.05";
 }
-

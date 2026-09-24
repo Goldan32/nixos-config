@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   nix.gc = {
     automatic = true;
@@ -7,6 +7,7 @@
   };
 
   boot.loader = {
-    grub.configurationLimit = 50;
+    grub.configurationLimit = 30;
+    systemd-boot.configurationLimit = 30;
   };
 }

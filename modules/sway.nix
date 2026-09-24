@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.sway = {
     enable = true;
     extraSessionCommands = ''
@@ -17,11 +18,6 @@
       exec sway
     fi
   '';
-
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-    pavucontrol
-  ];
 
   system.activationScripts.swayReload = {
     text = ''

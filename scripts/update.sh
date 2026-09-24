@@ -12,4 +12,3 @@ cd "$PROOT" && \
     nix flake update --override-input home-config path:"$HOME_CONFIG"
 
 echo "Update done, do a rebuild to take effect"
-
