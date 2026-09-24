@@ -18,12 +18,18 @@
 
   users.users.goldan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "disk" "power" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "dialout"
+      "docker"
+      "disk"
+      "power"
+    ];
   };
 
   programs.zsh.enable = false;
   programs.neovim.enable = false;
-
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -43,6 +49,5 @@
     wireguard-tools
     pulseaudio
     libmtp
-    jmtpfs
   ];
 }

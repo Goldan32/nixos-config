@@ -20,7 +20,6 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.54.2";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     hy3 = {
       url = "github:outfoxxed/hy3/hl0.54.2";
@@ -28,11 +27,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, home-config, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      home-config,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
 
-      mkHost = name: path: hmModule:
+      mkHost =
+        name: path: hmModule:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
@@ -53,7 +60,8 @@
             })
           ];
         };
-    in {
+    in
+    {
       nixosConfigurations = {
         vm = mkHost "vm" ./hosts/vm/configuration.nix home-config.hmModules.goldan;
         zenbook = mkHost "zenbook" ./hosts/zenbook/configuration.nix home-config.hmModules.goldan;
