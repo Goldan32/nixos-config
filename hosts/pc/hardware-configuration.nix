@@ -42,7 +42,13 @@
 
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-uuid/8C7C3C287C3C0F86";
-    fsType = "ntfs";
+    fsType = "ntfs3";
+    noCheck = true;
+    options = [
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=5s"
+    ];
   };
 
   swapDevices = [ ];
