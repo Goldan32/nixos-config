@@ -12,7 +12,7 @@
     ../../modules/mtp.nix
     ../../modules/nfancurve.nix
     ../../modules/nvidia.nix
-    ../../modules/virtualization.nix
+    ../../modules/virtualisation.nix
     ../../modules/wireguard.nix
   ];
 
