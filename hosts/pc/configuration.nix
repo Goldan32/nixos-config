@@ -14,6 +14,7 @@
     ../../modules/nvidia.nix
     ../../modules/virtualisation.nix
     ../../modules/wireguard.nix
+    ../../modules/local-cloud-mount.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
