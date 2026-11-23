@@ -16,6 +16,7 @@
     ../../modules/wireguard.nix
     ../../modules/local-cloud-mount.nix
     ../../modules/plymouth.nix
+    ../../modules/ollama.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
