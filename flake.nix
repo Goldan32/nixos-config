@@ -17,10 +17,10 @@
     home-config.url = "path:./home";
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.54.2";
+      url = "github:hyprwm/Hyprland/v0.56.0";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3/hl0.54.2";
+      url = "github:outfoxxed/hy3/hl0.56.0.1";
       inputs.hyprland.follows = "hyprland";
     };
   };
