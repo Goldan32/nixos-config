@@ -19,6 +19,7 @@
       "wheel"
       "networkmanager"
       "dialout"
+      "uinput"
       "docker"
       "disk"
       "power"
