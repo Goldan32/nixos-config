@@ -13,6 +13,8 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
 
+  hardware.uinput.enable = true;
+
   users.users.goldan = {
     isNormalUser = true;
     extraGroups = [
